@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 10-Hours-Saved Time Audit — Clock Lobster</title>
+    <style>
+        :root { --bg: #121214; --surface: #1e293b; --cta: #e11d48; --text: #f8fafc; --text-secondary: #94a3b8; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Georgia', serif; background: #fff; color: #1a1a1a; line-height: 1.7; font-size: 11pt; }
+        .page { width: 210mm; min-height: 297mm; padding: 25mm; margin: 0 auto; background: #fff; position: relative; page-break-after: always; }
+        .page:last-child { page-break-after: auto; }
+        .cover { background: linear-gradient(135deg, #121214 0%, #1e293b 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .cover h1 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32pt; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; line-height: 1.1; }
+        .cover .subtitle { font-size: 13pt; color: #94a3b8; margin-bottom: 2rem; max-width: 400px; }
+        .cover .brand { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 12pt; margin-top: 3rem; }
+        .cover .brand span { color: #e11d48; }
+        h2 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18pt; color: #121214; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #e11d48; padding-bottom: 0.5rem; }
+        h3 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13pt; color: #1e293b; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        p { margin-bottom: 1rem; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight-box { background: #f8fafc; border-left: 4px solid #e11d48; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .highlight-box p { margin-bottom: 0; color: #334155; }
+        .worksheet { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+        .worksheet h4 { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11pt; margin-bottom: 0.75rem; color: #334155; }
+        .worksheet .line { border-bottom: 1px solid #cbd5e1; height: 2rem; margin-bottom: 0.5rem; }
+        .worksheet .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; }
+        .matrix-cell { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem; font-size: 10pt; }
+        .matrix-header { font-weight: 700; background: #1e293b; color: #fff; }
+        .footer-brand { position: absolute; bottom: 25mm; left: 25mm; right: 25mm; text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 9pt; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 1rem; }
+        @media print { .page { margin: 0; width: 100%; } body { background: #fff; } }
+    </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page cover">
+    <div style="font-size: 4rem; margin-bottom: 1rem;">🦞</div>
+    <h1>The 10-Hours-Saved Time Audit</h1>
+    <p class="subtitle">A pre-consultation workbook to help you identify your biggest time drains before we meet</p>
+    <p style="font-size: 10pt; color: #64748b; max-width: 350px; margin-top: 1rem;">Complete this audit before your Reclamation Consultation and we'll hit the ground running.</p>
+    <div class="brand"><span>🦞</span> Clock Lobster</div>
+</div>
+
+<!-- INTRO -->
+<div class="page">
+    <h2>How to Use This Audit</h2>
+    <p>Thank you for booking a Reclamation Consultation with Clock Lobster. This workbook will help you prepare — and ensure our 30 minutes together are as productive as possible.</p>
+    <p><strong>Time required:</strong> 20–30 minutes</p>
+    <p><strong>What you'll get:</strong> A clear picture of where your team's time goes, which tasks are prime for automation, and a prioritized list to discuss on our call.</p>
+    <p><strong>Instructions:</strong> Be honest. There are no wrong answers. The more specific you are, the better we can help.</p>
+
+    <div class="highlight-box">
+        <p><strong>Tip:</strong> If you're filling this out as a team, have each person complete Section 1 independently. You'll be amazed how differently people experience the same workflows.</p>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="page">
+    <h2>Section 1: Your Typical Week</h2>
+    <p>Let's start with the big picture. For each category, estimate how many hours you (or your team) spend on it in a typical week.</p>
+
+    <div class="worksheet">
+        <h4>Time Allocation Worksheet</h4>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">
+            <span>Activity Category</span><span>Hours/Week</span><span>% of Week</span>
+        </div>
+        <div class="line"></div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Email & Communication</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Meetings & Calls</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Data Entry & Admin</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Report Generation</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Client/Customer Follow-up</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Creative/Strategic Work</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 10pt;">Other (specify below)</span><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Other Activities</h4>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="page">
+    <h2>Section 2: The Repetition Detector</h2>
+    <p>Now let's get specific. List up to five tasks you (or your team) do repeatedly — daily or weekly.</p>
+
+    <div class="worksheet">
+        <h4>Repetitive Task #1</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Describe the task:</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">How often? How long does it take?</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">Does it require human judgment, or could a machine follow rules?</p>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Repetitive Task #2</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Describe the task:</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">How often? How long does it take?</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">Does it require human judgment, or could a machine follow rules?</p>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Repetitive Task #3</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Describe the task:</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">How often? How long does it take?</p>
+        <div class="line"></div>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem; margin-top: 0.5rem;">Does it require human judgment, or could a machine follow rules?</p>
+        <div class="line"></div>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="page">
+    <h2>Section 3: The Pain & Priority Matrix</h2>
+    <p>Not all automations are equal. Use this matrix to identify which tasks hurt the most and which would be easiest to fix.</p>
+
+    <h3>Scoring Guide</h3>
+    <p><strong>Time Consumed (1–5):</strong> 1 = under 30 min/week, 5 = 5+ hours/week</p>
+    <p><strong>Energy Drain (1–5):</strong> 1 = neutral, 5 = soul-crushing</p>
+    <p><strong>Error Risk (1–5):</strong> 1 = mistakes don't matter, 5 = mistakes are costly</p>
+    <p><strong>Automation Ease (1–5):</strong> 1 = very complex, 5 = simple and well-defined</p>
+
+    <div class="worksheet">
+        <h4>Priority Scoring</h4>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; font-size: 9pt; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">
+            <span>Task</span><span>Time</span><span>Drain</span><span>Risk</span><span>Ease</span><span>Total</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+            <div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div><div class="line" style="margin:0;"></div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>Interpretation:</strong> Tasks with high Time + Drain + Risk scores AND high Ease scores are your "quick wins." Tasks with high scores but low Ease may need custom automation. Bring this to our call and we'll help you prioritize.</p>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="page">
+    <h2>Section 4: Systems & Tools Inventory</h2>
+    <p>What software does your team use? This helps us understand what we can integrate with.</p>
+
+    <div class="worksheet">
+        <h4>Communication</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Email platform, chat tools, video conferencing:</p>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>CRM & Sales</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Customer relationship management, sales tools:</p>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Operations & Data</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Project management, databases, spreadsheets, reporting:</p>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Finance & Billing</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Accounting, invoicing, payment processing:</p>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>Other / Custom Tools</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">Industry-specific software, proprietary systems:</p>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="page">
+    <h2>Section 5: Your Vision</h2>
+    <p>Finally, let's think bigger. If you could wave a magic wand and automate anything, what would it be?</p>
+
+    <div class="worksheet">
+        <h4>The Dream Scenario</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">If you had an extra 10 hours per week, what would you focus on?</p>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>The Frustration</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">What's the one workflow that, if fixed, would make your team's lives dramatically better?</p>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="worksheet">
+        <h4>The Fear</h4>
+        <p style="font-size: 10pt; color: #64748b; margin-bottom: 0.5rem;">What concerns do you have about automation? (Security, cost, team reaction, complexity?)</p>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>You're done!</strong> Save this audit and bring it to your Reclamation Consultation. We'll use it as our starting point to build your custom automation roadmap. If you have questions before our call, email hello@clocklobster.com.</p>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+        <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 14pt; color: #121214; margin-bottom: 0.5rem;">See you on the call.</p>
+        <p style="color: #64748b; font-size: 10pt;">— The Clock Lobster Team</p>
+    </div>
+
+    <div class="footer-brand">Clock Lobster — clocklobster.com</div>
+</div>
+
+</body>
+</html>
