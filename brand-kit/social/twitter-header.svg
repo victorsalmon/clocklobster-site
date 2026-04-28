@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500">
+  <!-- X / Twitter Header — 1500x500 -->
+  <!-- Dark background with centered logo + tagline -->
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="#121214"/>
+
+  <!-- Subtle grid pattern -->
+  <g stroke="#1e293b" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="100" x2="1500" y2="100"/>
+    <line x1="0" y1="200" x2="1500" y2="200"/>
+    <line x1="0" y1="300" x2="1500" y2="300"/>
+    <line x1="0" y1="400" x2="1500" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+    <line x1="900" y1="0" x2="900" y2="500"/>
+    <line x1="1200" y1="0" x2="1200" y2="500"/>
+  </g>
+
+  <!-- Logo icon (scaled, centered) -->
+  <g transform="translate(660, 60) scale(0.7)">
+    <!-- Antennae -->
+    <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M208,122 Q220,82 230,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="170" cy="42" r="3.5" fill="#e11d48"/>
+    <circle cx="230" cy="42" r="3.5" fill="#e11d48"/>
+
+    <circle cx="200" cy="210" r="85" fill="none" stroke="#e11d48" stroke-width="4.5"/>
+
+    <g fill="#e11d48">
+      <rect x="197" y="130" width="6" height="13" rx="1.5"/>
+      <rect x="278" y="207" width="13" height="6" rx="1.5"/>
+      <rect x="197" y="288" width="6" height="13" rx="1.5"/>
+      <rect x="110" y="207" width="13" height="6" rx="1.5"/>
+    </g>
+    <g fill="#e11d48">
+      <circle cx="243" cy="137" r="3"/>
+      <circle cx="273" cy="167" r="3"/>
+      <circle cx="273" cy="253" r="3"/>
+      <circle cx="243" cy="283" r="3"/>
+      <circle cx="157" cy="283" r="3"/>
+      <circle cx="127" cy="253" r="3"/>
+      <circle cx="127" cy="167" r="3"/>
+      <circle cx="157" cy="137" r="3"/>
+    </g>
+
+    <circle cx="200" cy="210" r="9" fill="#e11d48"/>
+    <circle cx="200" cy="210" r="4" fill="#121214"/>
+
+    <line x1="200" y1="210" x2="148" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+    <path d="M148,180 Q130,153 115,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M148,180 Q125,175 102,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+
+    <line x1="200" y1="210" x2="252" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+    <path d="M252,180 Q270,153 285,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M252,180 Q275,175 298,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+
+    <path d="M186,293 L173,340 L190,318 L196,350 L200,356 L204,350 L210,318 L227,340 L214,293" fill="#e11d48"/>
+
+    <g stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <path d="M117,195 Q97,203 80,220"/>
+      <path d="M117,212 Q94,222 76,240"/>
+      <path d="M117,229 Q98,240 83,258"/>
+      <path d="M283,195 Q303,203 320,220"/>
+      <path d="M283,212 Q306,222 324,240"/>
+      <path d="M283,229 Q302,240 317,258"/>
+    </g>
+  </g>
+
+  <!-- Tagline -->
+  <text x="750" y="420" text-anchor="middle" font-family="'Outfit', 'Segoe UI', system-ui, sans-serif" font-size="36" font-weight="600" fill="#f8fafc" letter-spacing="2">YOUR TIME. RECLAIMED.</text>
+  <text x="750" y="460" text-anchor="middle" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-size="18" fill="#94a3b8" letter-spacing="1">clocklobster.com</text>
+</svg>

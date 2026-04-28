@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <!-- Instagram Post Template — 1080x1080 (square) -->
+  <!-- Dark background, centered logo + headline -->
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#121214"/>
+
+  <!-- Subtle radial glow -->
+  <circle cx="540" cy="440" r="300" fill="#e11d48" opacity="0.04"/>
+  <circle cx="540" cy="440" r="180" fill="#e11d48" opacity="0.03"/>
+
+  <!-- Logo icon (centered, scaled) -->
+  <g transform="translate(400, 130) scale(0.7)">
+    <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M208,122 Q220,82 230,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="170" cy="42" r="3.5" fill="#e11d48"/>
+    <circle cx="230" cy="42" r="3.5" fill="#e11d48"/>
+
+    <circle cx="200" cy="210" r="85" fill="none" stroke="#e11d48" stroke-width="4.5"/>
+
+    <g fill="#e11d48">
+      <rect x="197" y="130" width="6" height="13" rx="1.5"/>
+      <rect x="278" y="207" width="13" height="6" rx="1.5"/>
+      <rect x="197" y="288" width="6" height="13" rx="1.5"/>
+      <rect x="110" y="207" width="13" height="6" rx="1.5"/>
+    </g>
+    <g fill="#e11d48">
+      <circle cx="243" cy="137" r="3"/>
+      <circle cx="273" cy="167" r="3"/>
+      <circle cx="273" cy="253" r="3"/>
+      <circle cx="243" cy="283" r="3"/>
+      <circle cx="157" cy="283" r="3"/>
+      <circle cx="127" cy="253" r="3"/>
+      <circle cx="127" cy="167" r="3"/>
+      <circle cx="157" cy="137" r="3"/>
+    </g>
+
+    <circle cx="200" cy="210" r="9" fill="#e11d48"/>
+    <circle cx="200" cy="210" r="4" fill="#121214"/>
+
+    <line x1="200" y1="210" x2="148" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+    <path d="M148,180 Q130,153 115,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M148,180 Q125,175 102,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+
+    <line x1="200" y1="210" x2="252" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+    <path d="M252,180 Q270,153 285,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M252,180 Q275,175 298,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+
+    <path d="M186,293 L173,340 L190,318 L196,350 L200,356 L204,350 L210,318 L227,340 L214,293" fill="#e11d48"/>
+
+    <g stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" fill="none">
+      <path d="M117,195 Q97,203 80,220"/>
+      <path d="M117,212 Q94,222 76,240"/>
+      <path d="M117,229 Q98,240 83,258"/>
+      <path d="M283,195 Q303,203 320,220"/>
+      <path d="M283,212 Q306,222 324,240"/>
+      <path d="M283,229 Q302,240 317,258"/>
+    </g>
+  </g>
+
+  <!-- Headline -->
+  <text x="540" y="780" text-anchor="middle" font-family="'Outfit', 'Segoe UI', system-ui, sans-serif" font-size="52" font-weight="700" fill="#f8fafc" letter-spacing="-0.5">Your Digital Employees</text>
+  <text x="540" y="845" text-anchor="middle" font-family="'Outfit', 'Segoe UI', system-ui, sans-serif" font-size="52" font-weight="700" fill="#e11d48" letter-spacing="-0.5">Never Clock Out</text>
+
+  <!-- URL -->
+  <text x="540" y="980" text-anchor="middle" font-family="'Inter', 'Segoe UI', system-ui, sans-serif" font-size="24" fill="#94a3b8" letter-spacing="2">CLOCKLOBSTER.COM</text>
+</svg>
