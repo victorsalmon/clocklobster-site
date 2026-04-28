@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Clock Face Lobster — Favicon (simplified for 64x64) -->
-  <!-- Only clock face + claw hands. Detail stripped for tiny sizes. -->
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Clock Face Lobster — Favicon (simplified, transparent) -->
 
   <!-- Clock face -->
   <circle cx="32" cy="32" r="22" fill="none" stroke="#e11d48" stroke-width="3"/>

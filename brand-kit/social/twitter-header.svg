@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500">
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500">
   <!-- X / Twitter Header — 1500x500 -->
   <!-- Dark background with centered logo + tagline -->
 
@@ -19,7 +19,6 @@
 
   <!-- Logo icon (scaled, centered) -->
   <g transform="translate(660, 60) scale(0.7)">
-    <!-- Antennae -->
     <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
     <path d="M208,122 Q220,82 230,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
     <circle cx="170" cy="42" r="3.5" fill="#e11d48"/>

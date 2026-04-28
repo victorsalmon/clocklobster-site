@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
-  <!-- Clock Face Lobster — Horizontal Layout (icon + text) -->
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <!-- Clock Face Lobster — Horizontal Layout (icon + text, transparent) -->
 
-  <!-- === LOGO MARK (scaled and positioned left) === -->
+  <!-- === ICON (scaled, left) === -->
   <g transform="translate(20, 20) scale(0.9)">
     <!-- Antennae -->
     <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
@@ -19,8 +19,6 @@
       <rect x="197" y="288" width="6" height="13" rx="1.5"/>
       <rect x="110" y="207" width="13" height="6" rx="1.5"/>
     </g>
-
-    <!-- Dot markers -->
     <g fill="#e11d48">
       <circle cx="243" cy="137" r="3"/>
       <circle cx="273" cy="167" r="3"/>
@@ -34,7 +32,7 @@
 
     <!-- Center hub -->
     <circle cx="200" cy="210" r="9" fill="#e11d48"/>
-    <circle cx="200" cy="210" r="4" fill="#1e293b"/>
+    <circle cx="200" cy="210" r="4" fill="#121214"/>
 
     <!-- Left claw -->
     <line x1="200" y1="210" x2="148" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>

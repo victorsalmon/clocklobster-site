@@ -1,9 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520">
-  <!-- Clock Face Lobster — Stacked Layout (icon above text) -->
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520">
+  <!-- Clock Face Lobster — Stacked Layout (icon above text, transparent) -->
 
-  <!-- === LOGO MARK (scaled down, centered) === -->
+  <!-- === ICON (centered, scaled) === -->
   <g transform="translate(0, 0) scale(0.82)">
-
     <!-- Antennae -->
     <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
     <path d="M208,122 Q220,82 230,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
@@ -20,7 +19,6 @@
       <rect x="197" y="288" width="6" height="13" rx="1.5"/>
       <rect x="110" y="207" width="13" height="6" rx="1.5"/>
     </g>
-
     <g fill="#e11d48">
       <circle cx="243" cy="137" r="3"/>
       <circle cx="273" cy="167" r="3"/>
@@ -32,8 +30,9 @@
       <circle cx="157" cy="137" r="3"/>
     </g>
 
+    <!-- Center hub -->
     <circle cx="200" cy="210" r="9" fill="#e11d48"/>
-    <circle cx="200" cy="210" r="4" fill="#1e293b"/>
+    <circle cx="200" cy="210" r="4" fill="#121214"/>
 
     <!-- Left claw -->
     <line x1="200" y1="210" x2="148" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
@@ -48,6 +47,7 @@
     <!-- Tail fan -->
     <path d="M186,293 L173,340 L190,318 L196,350 L200,356 L204,350 L210,318 L227,340 L214,293" fill="#e11d48"/>
 
+    <!-- Legs -->
     <g stroke="#e11d48" stroke-width="2.5" stroke-linecap="round" fill="none">
       <path d="M117,195 Q97,203 80,220"/>
       <path d="M117,212 Q94,222 76,240"/>

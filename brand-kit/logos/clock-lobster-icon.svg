@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-  <!-- Clock Face Lobster — Primary Icon -->
-  <!-- Body = clock face, claws = clock hands at 10:10, tail + antennae + legs for lobster identity -->
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Clock Face Lobster — Primary Icon (red on transparent) -->
 
   <!-- Antennae -->
   <path d="M192,122 Q180,82 170,42" stroke="#e11d48" stroke-width="3" stroke-linecap="round" fill="none"/>
@@ -11,7 +10,7 @@
   <!-- Clock face circle -->
   <circle cx="200" cy="210" r="85" fill="none" stroke="#e11d48" stroke-width="4.5"/>
 
-  <!-- Hour markers — cardinal (rectangles) -->
+  <!-- Hour markers — cardinal -->
   <g fill="#e11d48">
     <rect x="197" y="130" width="6" height="13" rx="1.5"/>
     <rect x="278" y="207" width="13" height="6" rx="1.5"/>
@@ -19,7 +18,7 @@
     <rect x="110" y="207" width="13" height="6" rx="1.5"/>
   </g>
 
-  <!-- Hour markers — others (dots) -->
+  <!-- Hour markers — dots -->
   <g fill="#e11d48">
     <circle cx="243" cy="137" r="3"/>
     <circle cx="273" cy="167" r="3"/>
@@ -33,25 +32,19 @@
 
   <!-- Center hub -->
   <circle cx="200" cy="210" r="9" fill="#e11d48"/>
-  <circle cx="200" cy="210" r="4" fill="#1e293b"/>
+  <circle cx="200" cy="210" r="4" fill="#121214"/>
 
-  <!-- Left claw / hour hand (points to 10 o'clock) -->
-  <!-- Shaft from center -->
+  <!-- Left claw (hour hand to 10 o'clock) -->
   <line x1="200" y1="210" x2="148" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
-  <!-- Upper prong (dactyl) — thinner, curves up -->
   <path d="M148,180 Q130,153 115,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-  <!-- Lower prong (propodus) — thicker, curves outward -->
   <path d="M148,180 Q125,175 102,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
 
-  <!-- Right claw / minute hand (points to 2 o'clock) -->
-  <!-- Shaft from center -->
+  <!-- Right claw (minute hand to 2 o'clock) -->
   <line x1="200" y1="210" x2="252" y2="180" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
-  <!-- Upper prong (dactyl) -->
   <path d="M252,180 Q270,153 285,128" stroke="#e11d48" stroke-width="6.5" stroke-linecap="round" fill="none"/>
-  <!-- Lower prong (propodus) -->
   <path d="M252,180 Q275,175 298,168" stroke="#e11d48" stroke-width="8.5" stroke-linecap="round" fill="none"/>
 
-  <!-- Tail fan (6 o'clock) -->
+  <!-- Tail fan -->
   <path d="M186,293 L173,340 L190,318 L196,350 L200,356 L204,350 L210,318 L227,340 L214,293" fill="#e11d48"/>
 
   <!-- Walking legs — left -->
