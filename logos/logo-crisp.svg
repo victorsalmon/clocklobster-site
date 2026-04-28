@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- High-contrast, sharp geometry -->
+
+  <!-- Outer precise ring -->
+  <circle cx="256" cy="230" r="185" fill="none" stroke="#000" stroke-width="6"/>
+  <circle cx="256" cy="230" r="175" fill="none" stroke="#000" stroke-width="2"/>
+
+  <!-- Lobster constructed from straight lines and sharp angles -->
+  <!-- Tail -->
+  <polygon points="256,400 230,360 282,360" fill="#000"/>
+  <polygon points="230,360 210,320 302,320 282,360" fill="#000"/>
+
+  <!-- Body -->
+  <polygon points="210,320 190,240 210,160 256,140 302,160 322,240 302,320" fill="#000"/>
+
+  <!-- Claws -->
+  <polygon points="190,240 130,200 110,260 150,280" fill="#000"/>
+  <polygon points="130,200 140,170 170,190" fill="#000"/>
+  <polygon points="322,240 382,200 402,260 362,280" fill="#000"/>
+  <polygon points="382,200 372,170 342,190" fill="#000"/>
+
+  <!-- Segments (cut out using white lines) -->
+  <line x1="200" y1="200" x2="312" y2="200" stroke="#fff" stroke-width="3"/>
+  <line x1="195" y1="240" x2="317" y2="240" stroke="#fff" stroke-width="3"/>
+  <line x1="205" y1="280" x2="307" y2="280" stroke="#fff" stroke-width="3"/>
+
+  <!-- Antennae -->
+  <polyline points="230,160 210,100 190,90" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="282,160 302,100 322,90" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="190" cy="90" r="5" fill="#000"/>
+  <circle cx="322" cy="90" r="5" fill="#000"/>
+
+  <!-- Clock dial negative space -->
+  <circle cx="256" cy="240" r="40" fill="#fff" stroke="#000" stroke-width="4"/>
+  <line x1="256" y1="240" x2="256" y2="210" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  <line x1="256" y1="240" x2="280" y2="260" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="256" cy="240" r="5" fill="#000"/>
+
+  <!-- Tick marks -->
+  <line x1="256" y1="200" x2="256" y2="205" stroke="#000" stroke-width="3"/>
+  <line x1="256" y1="280" x2="256" y2="275" stroke="#000" stroke-width="3"/>
+  <line x1="216" y1="240" x2="221" y2="240" stroke="#000" stroke-width="3"/>
+  <line x1="296" y1="240" x2="291" y2="240" stroke="#000" stroke-width="3"/>
+
+  <!-- Wordmark -->
+  <text x="256" y="470" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="44" fill="#000" letter-spacing="4">CLOCK LOBSTER</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <clipPath id="mClip">
+      <circle cx="256" cy="220" r="160"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer thin ring -->
+  <circle cx="256" cy="220" r="170" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Lobster mark — ultra simplified using a single stroke path -->
+  <g clip-path="url(#mClip)">
+    <!-- Body as a single teardrop -->
+    <path d="M256 80 C200 80, 160 160, 160 240 C160 320, 200 380, 256 380 C312 380, 352 320, 352 240 C352 160, 312 80, 256 80 Z" fill="none" stroke="#1e293b" stroke-width="6"/>
+
+    <!-- One clean line for each claw -->
+    <path d="M180 180 C140 140, 100 180, 120 240" fill="none" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+    <path d="M332 180 C372 140, 412 180, 392 240" fill="none" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Tiny tick marks for segments -->
+    <line x1="190" y1="260" x2="210" y2="260" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+    <line x1="302" y1="260" x2="322" y2="260" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+    <line x1="200" y1="300" x2="220" y2="300" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+    <line x1="292" y1="300" x2="312" y2="300" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Clock hands inside the body -->
+    <line x1="256" y1="240" x2="256" y2="160" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/>
+    <line x1="256" y1="240" x2="300" y2="280" stroke="#1e293b" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="256" cy="240" r="6" fill="#1e293b"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="256" y="460" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="300" font-size="40" fill="#1e293b" letter-spacing="6">CLOCK LOBSTER</text>
+</svg>

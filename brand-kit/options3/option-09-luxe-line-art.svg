@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Elegant thin-line lobster with watch face -->
+  
+  <!-- Outer fine circle -->
+  <circle cx="256" cy="230" r="200" fill="none" stroke="#d4d4d8" stroke-width="1"/>
+  <circle cx="256" cy="230" r="185" fill="none" stroke="#0f172a" stroke-width="2"/>
+  
+  <!-- Lobster - single weight elegant lines -->
+  <!-- Tail -->
+  <path d="M256 380 Q236 350 246 330 Q256 310 266 330 Q276 350 256 380" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M246 330 Q230 310 240 295 Q256 280 272 295 Q282 310 266 330" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Body segments flowing into watch -->
+  <path d="M240 295 Q220 260 230 220 Q240 180 256 160 Q272 180 282 220 Q292 260 272 295" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Watch face / Carapace -->
+  <circle cx="256" cy="210" r="55" fill="none" stroke="#0f172a" stroke-width="3"/>
+  <circle cx="256" cy="210" r="48" fill="none" stroke="#d4d4d8" stroke-width="1"/>
+  
+  <!-- Watch markers -->
+  <g fill="#0f172a">
+    <rect x="252" y="158" width="8" height="4" rx="1"/><rect x="252" y="258" width="8" height="4" rx="1"/>
+    <rect x="204" y="206" width="4" height="8" rx="1"/><rect x="304" y="206" width="4" height="8" rx="1"/>
+  </g>
+  <!-- Watch hands -->
+  <line x1="256" y1="210" x2="256" y2="175" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="256" y1="210" x2="280" y2="228" stroke="#e11d48" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="256" cy="210" r="4" fill="#e11d48"/>
+  
+  <!-- Crown -->
+  <rect x="252" y="148" width="8" height="10" rx="2" fill="#0f172a"/>
+  
+  <!-- Elegant claws -->
+  <path d="M200 200 C170 170, 140 190, 150 230 C155 250, 180 240, 195 220" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M150 230 C140 220, 145 205 155 210" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  
+  <path d="M312 200 C342 170, 372 190, 362 230 C357 250, 332 240, 317 220" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M362 230 C372 220, 367 205 357 210" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Antennae -->
+  <path d="M240 160 Q220 110 200 90" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M272 160 Q292 110 312 90" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="200" cy="90" r="4" fill="none" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="312" cy="90" r="4" fill="none" stroke="#0f172a" stroke-width="2"/>
+  
+  <text x="256" y="470" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="400" font-style="italic" font-size="32" fill="#0f172a" letter-spacing="3">Clock Lobster</text>
+  <text x="256" y="488" text-anchor="middle" font-family="'Times New Roman', serif" font-size="10" fill="#a1a1aa" letter-spacing="4">AUTOMATION ATELIER</text>
+</svg>

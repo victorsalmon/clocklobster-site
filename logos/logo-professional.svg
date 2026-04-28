@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="pBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b91c1c"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+    <linearGradient id="pGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield / badge background -->
+  <path d="M256 40 L460 120 L460 260 C460 380 360 460 256 480 C152 460 52 380 52 260 L52 120 Z" fill="#0f172a"/>
+
+  <!-- Gold border -->
+  <path d="M256 55 L445 128 L445 260 C445 370 352 445 256 463 C160 445 67 370 67 260 L67 128 Z" fill="none" stroke="url(#pGold)" stroke-width="4"/>
+
+  <!-- Lobster -->
+  <!-- Tail -->
+  <path d="M216 400 Q256 430 296 400 L286 370 Q256 390 226 370 Z" fill="url(#pBody)"/>
+  <path d="M226 370 Q256 390 286 370 L276 340 Q256 360 236 340 Z" fill="url(#pBody)"/>
+
+  <!-- Main body -->
+  <ellipse cx="256" cy="280" rx="65" ry="85" fill="url(#pBody)"/>
+
+  <!-- Claws -->
+  <path d="M195 230 C160 190, 120 220, 135 270 C145 295, 175 285, 190 260 Z" fill="url(#pBody)"/>
+  <path d="M317 230 C352 190, 392 220, 377 270 C367 295, 337 285, 322 260 Z" fill="url(#pBody)"/>
+
+  <!-- Claw pincers highlight -->
+  <path d="M140 240 L150 250 L145 260" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+  <path d="M372 240 L362 250 L367 260" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Antennae -->
+  <path d="M236 200 Q220 140 200 110" fill="none" stroke="url(#pGold)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M276 200 Q292 140 312 110" fill="none" stroke="url(#pGold)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="200" cy="110" r="4" fill="url(#pGold)"/>
+  <circle cx="312" cy="110" r="4" fill="url(#pGold)"/>
+
+  <!-- Clock face overlay -->
+  <circle cx="256" cy="280" r="35" fill="#0f172a" stroke="url(#pGold)" stroke-width="3"/>
+  <line x1="256" y1="280" x2="256" y2="255" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <line x1="256" y1="280" x2="275" y2="295" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="256" cy="280" r="4" fill="#fbbf24"/>
+
+  <!-- Small hour markers -->
+  <circle cx="256" cy="250" r="2" fill="#fbbf24"/>
+  <circle cx="256" cy="310" r="2" fill="#fbbf24"/>
+  <circle cx="226" cy="280" r="2" fill="#fbbf24"/>
+  <circle cx="286" cy="280" r="2" fill="#fbbf24"/>
+
+  <!-- Wordmark -->
+  <text x="256" y="440" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="34" fill="#fbbf24" letter-spacing="2">CLOCK LOBSTER</text>
+  <text x="256" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" letter-spacing="4">AUTOMATION AGENCY</text>
+</svg>
