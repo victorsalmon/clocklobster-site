@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sc1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1714"/>
+      <stop offset="100%" stop-color="#2c2520"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Refined lobster silhouette, very understated -->
+  <g transform="translate(256, 170)" opacity="0.85">
+    <!-- Body as smooth teardrop -->
+    <path d="
+      M 0 -80
+      C -45 -80, -70 -40, -70 10
+      C -70 60, -45 100, 0 100
+      C 45 100, 70 60, 70 10
+      C 70 -40, 45 -80, 0 -80 Z
+    " fill="url(#sc1)"/>
+
+    <!-- Claws as thin elegant curves -->
+    <path d="M-65 -10 C-100 -40, -130 -15, -118 20 C-110 40, -88 35, -78 15" fill="none" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+    <path d="M65 -10 C100 -40, 130 -15, 118 20 C110 40, 88 35, 78 15" fill="none" stroke="#1a1714" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Antennae -->
+    <path d="M-25 -75 C-35 -105, -45 -120, -55 -128" fill="none" stroke="#1a1714" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M25 -75 C35 -105, 45 -120, 55 -128" fill="none" stroke="#1a1714" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Tail -->
+    <path d="M-20 95 L0 125 L20 95" fill="url(#sc1)"/>
+    <path d="M-14 120 L0 142 L14 120" fill="#2c2520"/>
+
+    <!-- Clock face as cutout in body -->
+    <circle cx="0" cy="15" r="36" fill="#fdf8ed"/>
+    <circle cx="0" cy="15" r="32" fill="none" stroke="#d4c9a8" stroke-width="0.8"/>
+    <g fill="#1a1714">
+      <rect x="-2" y="-18" width="4" height="5" rx="1"/>
+      <rect x="-2" y="33" width="4" height="5" rx="1"/>
+      <rect x="-22" y="13" width="5" height="4" rx="1"/>
+      <rect x="17" y="13" width="5" height="4" rx="1"/>
+    </g>
+    <line x1="0" y1="15" x2="0" y2="-10" stroke="#1a1714" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="15" x2="14" y2="25" stroke="#be123c" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="0" cy="15" r="3" fill="#1a1714"/>
+  </g>
+
+  <!-- Elegant script wordmark -->
+  <text x="256" y="398" text-anchor="middle" font-family="Georgia, 'Palatino Linotype', 'Times New Roman', serif" font-style="italic" font-weight="400" font-size="42" fill="#1a1714" letter-spacing="2">Clock Lobster</text>
+
+  <!-- Thin rule -->
+  <line x1="140" y1="415" x2="372" y2="415" stroke="#c9a84c" stroke-width="0.8"/>
+
+  <!-- Subtitle -->
+  <text x="256" y="440" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="300" font-size="11" fill="#94a3b8" letter-spacing="7">AUTOMATION AGENCY</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="hg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#9f1239"/>
+    </linearGradient>
+    <linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Lobster with hourglass on belly -->
+  
+  <!-- Claws -->
+  <path d="M158 255 C112 215, 78 248, 95 298 C108 335, 142 322, 156 290 Z" fill="url(#hg1)"/>
+  <path d="M354 255 C400 215, 434 248, 417 298 C404 335, 370 322, 356 290 Z" fill="url(#hg1)"/>
+  
+  <!-- Body -->
+  <ellipse cx="256" cy="278" rx="80" ry="105" fill="url(#hg1)"/>
+  <path d="M180 248 Q256 266 332 248" stroke="#9f1239" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M178 282 Q256 298 334 282" stroke="#9f1239" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M184 315 Q256 330 328 315" stroke="#9f1239" stroke-width="3" fill="none" opacity="0.4"/>
+  
+  <!-- Hourglass on belly -->
+  <g transform="translate(256, 278)">
+    <rect x="-22" y="-38" width="44" height="76" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+    <!-- Top sand -->
+    <polygon points="-16,-32 16,-32 4,0 -4,0" fill="url(#hg2)" opacity="0.8"/>
+    <!-- Bottom sand -->
+    <polygon points="-4,0 4,0 16,32 -16,32" fill="url(#hg2)" opacity="0.6"/>
+    <!-- Falling sand -->
+    <line x1="0" y1="-5" x2="0" y2="8" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    <!-- Frame lines -->
+    <line x1="-22" y1="0" x2="22" y2="0" stroke="#0f172a" stroke-width="3"/>
+    <rect x="-26" y="-40" width="52" height="4" rx="2" fill="#0f172a"/>
+    <rect x="-26" y="36" width="52" height="4" rx="2" fill="#0f172a"/>
+  </g>
+  
+  <!-- Eyes -->
+  <circle cx="226" cy="208" r="15" fill="#f8fafc"/>
+  <circle cx="230" cy="206" r="8" fill="#0f172a"/>
+  <circle cx="232" cy="203" r="3" fill="#f8fafc"/>
+  <circle cx="286" cy="208" r="15" fill="#f8fafc"/>
+  <circle cx="282" cy="206" r="8" fill="#0f172a"/>
+  <circle cx="280" cy="203" r="3" fill="#f8fafc"/>
+  
+  <!-- Smile -->
+  <path d="M243 375 Q256 390 269 375" stroke="#f8fafc" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Antennae -->
+  <path d="M234" y1="190" Q215 138 192 118" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="192" cy="118" r="6" fill="#fbbf24"/>
+  <path d="M278" y1="190" Q297 138 320 118" fill="none" stroke="#be123c" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="320" cy="118" r="6" fill="#fbbf24"/>
+  
+  <!-- Tail -->
+  <polygon points="256,383 236,356 276,356" fill="url(#hg1)"/>
+  <polygon points="236,356 228,328 284,328 276,356" fill="#be123c"/>
+  
+  <text x="256" y="472" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="34" fill="#0f172a" letter-spacing="2">Clock Lobster</text>
+</svg>
