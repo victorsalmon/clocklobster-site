@@ -15,16 +15,17 @@ The logo embodies this fusion: a lobster whose body **is** a clock face, with it
 
 ### Logo Mark Description
 
-The Clock Face Lobster icon consists of:
+The Clock Lobster icon is a cute, illustrated character that merges a lobster with a clock face:
 
-1. **Clock face** (circle) — the lobster's body/carapace
-2. **Hour markers** — 12 dots/rectangles around the clock face
-3. **Center hub** — the axis where clock hands meet
-4. **Left claw (hour hand)** — extends from center toward 10 o'clock, splitting into two prongs (dactyl + propodus)
-5. **Right claw (minute hand)** — extends from center toward 2 o'clock, mirroring the left claw
-6. **Antennae** — two curved lines with dot tips extending from 12 o'clock
-7. **Tail fan** — a spread fan shape at the 6 o'clock position
-8. **Walking legs** — three subtle legs on each side (9 o'clock and 3 o'clock)
+1. **Body** — a filled circle in dark lobster red (#be123c) serving as the clock face and carapace
+2. **Eyes** — two large expressive white eyes with black pupils near the top of the body, giving the character a friendly, approachable look
+3. **Hour markers** — 12 small white dots arranged around the body edge
+4. **Center hub** — a bright red circle with a dark inner dot where the claws originate
+5. **Left claw (hour hand)** — a thick arm extending from center toward 10 o'clock, ending in a chunky two-lobed pincer (large ellipse + small thumb)
+6. **Right claw (minute hand)** — mirrors the left claw toward 2 o'clock
+7. **Antennae** — two curved strokes with round dot tips extending from above the eyes
+8. **Tail fan** — a filled spread shape at the 6 o'clock position
+9. **Walking legs** — three small round bumps on each side of the body
 
 ### Logo Variants
 
