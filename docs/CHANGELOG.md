@@ -37,6 +37,21 @@ All notable changes to the Clock Lobster site will be documented in this file.
 - Modular JS: mobile nav, chat widget, scroll animations
 - CSS organized with design tokens (variables for colors, spacing, typography, effects)
 
+## [1.1.0] - 2026-04-27
+
+### Added
+- Brand kit (`brand-kit/`) with SVG logo set and social media templates:
+  - Clock Face Lobster icon (primary, white, dark variants)
+  - Horizontal and stacked logo+text lockups
+  - Social media avatar (optimized for circular crops)
+  - Simplified favicon
+  - X/Twitter header template (1500x500)
+  - Facebook Page cover template (820x312)
+  - Instagram post template (1080x1080)
+  - Full brand guide (`BRAND_GUIDE.md`) with colors, typography, and usage rules
+- Build pipeline skill (`skill.md`) for packaging theme ZIP
+- `build/` directory with timestamped WordPress-ready theme ZIP
+
 ### Notes
 - Affiliate link for Mailbutler is a placeholder — replace with actual partner link after registration
 - Chat widget is static mockup — replace with Chatbase or custom OpenAI when ready
