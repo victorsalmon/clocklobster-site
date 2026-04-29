@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Clock Lobster website form handler — proxies submissions to Attio CRM
+
+Parameters:
+  SecretName:
+    Type: String
+    Default: ClockLobster/Site/Secrets
+    Description: AWS Secrets Manager secret containing the Attio API key
+  SecretKey:
+    Type: String
+    Default: ATTIO_WEB_FORM1_KEY
+    Description: Key name within the secret for the Attio API key
+
+Resources:
+  FormHandlerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: clocklobster-form-handler
+      CodeUri: .
+      Handler: index.handler
+      Runtime: nodejs20.x
+      Timeout: 15
+      MemorySize: 128
+      Environment:
+        Variables:
+          SECRET_NAME: !Ref SecretName
+          SECRET_KEY: !Ref SecretKey
+      Policies:
+        - Statement:
+            Effect: Allow
+            Action:
+              - secretsmanager:GetSecretValue
+            Resource: !Sub 'arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:${SecretName}*'
+      Events:
+        SubmitPost:
+          Type: HttpApi
+          Properties:
+            Method: POST
+            Path: /submit
+            ApiId: !Ref FormHandlerApi
+
+  FormHandlerApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: prod
+      CorsConfiguration:
+        AllowOrigins:
+          - https://clocklobster.com
+          - https://www.clocklobster.com
+          - https://victorsalmon.github.io
+        AllowMethods:
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+        MaxAge: 86400
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 10
+
+Outputs:
+  FormApiUrl:
+    Description: Form submission endpoint URL
+    Value: !Sub 'https://${FormHandlerApi}.execute-api.${AWS::Region}.amazonaws.com/prod/submit'
