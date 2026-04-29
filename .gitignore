@@ -35,6 +35,10 @@ wp-config.php
 # htaccess
 /.htaccess
 
+# Lambda build artifacts
+lambda/.aws-sam/
+lambda/node_modules/
+
 # All plugins
 #
 # Note: If you wish to whitelist plugins,

@@ -73,19 +73,67 @@
         });
     }
 
+    var FORM_API_URL = 'FORM_API_URL_PLACEHOLDER';
+
+    function getFormSource(form) {
+        if (form.closest('.footer-form')) return 'footer';
+        if (form.closest('.lead-magnet-section')) return 'lead-magnet';
+        if (window.location.pathname.includes('contact')) return 'contact';
+        return 'unknown';
+    }
+
+    function showFormSuccess(form) {
+        var successEl = form.parentElement.querySelector('.form-success');
+        if (successEl) {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+        }
+        var redirect = form.getAttribute('data-redirect');
+        if (redirect) {
+            setTimeout(function() {
+                window.location.href = redirect;
+            }, 2000);
+        }
+    }
+
     document.querySelectorAll('.static-form').forEach(function(form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            var successEl = form.parentElement.querySelector('.form-success');
-            if (successEl) {
-                form.style.display = 'none';
-                successEl.style.display = 'block';
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            var originalText = submitBtn ? submitBtn.textContent : '';
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
             }
-            var redirect = form.getAttribute('data-redirect');
-            if (redirect) {
-                setTimeout(function() {
-                    window.location.href = redirect;
-                }, 2000);
+
+            var formData = new FormData(form);
+            var data = {
+                name: (formData.get('name') || '').trim(),
+                email: (formData.get('email') || '').trim(),
+                company: (formData.get('company') || '').trim(),
+                message: (formData.get('message') || '').trim(),
+                budget: (formData.get('budget') || '').trim(),
+                source: getFormSource(form)
+            };
+
+            if (FORM_API_URL && FORM_API_URL !== 'FORM_API_URL_PLACEHOLDER') {
+                fetch(FORM_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).then(function(response) {
+                    showFormSuccess(form);
+                    if (!response.ok) {
+                        console.error('Form submission returned:', response.status);
+                    }
+                }).catch(function(err) {
+                    showFormSuccess(form);
+                    console.error('Form submission error:', err);
+                });
+            } else {
+                showFormSuccess(form);
             }
         });
     });
