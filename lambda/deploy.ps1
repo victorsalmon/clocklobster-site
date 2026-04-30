@@ -5,10 +5,11 @@
 $ErrorActionPreference = "Stop"
 
 $Region = "ca-west-1"
+$Profile = "dev-account"
 $FunctionName = "clocklobster-form-handler"
 $SecretName = "ClockLobster/Site/Secrets"
 $SecretKey = "ATTIO_WEB_FORM1_KEY"
-$AccountId = (aws sts get-caller-identity --query Account --output text --region $Region)
+$AccountId = (aws sts get-caller-identity --profile $Profile --query Account --output text --region $Region)
 
 Write-Host "=== Clock Lobster Lambda Deployment ===" -ForegroundColor Cyan
 Write-Host "Region: $Region"
@@ -28,7 +29,7 @@ $RoleName = "clocklobster-lambda-role"
 $RoleArn = $null
 
 try {
-    $RoleArn = aws iam get-role --role-name $RoleName --query 'Role.Arn' --output text 2>$null
+    $RoleArn = aws iam --profile $Profile get-role --role-name $RoleName --query 'Role.Arn' --output text 2>$null
     Write-Host "  ✓ Role already exists: $RoleArn" -ForegroundColor Green
 } catch {
     Write-Host "  Creating new role..." -ForegroundColor Gray
@@ -47,13 +48,13 @@ try {
 '@
     $TrustPolicy | Out-File -FilePath "trust-policy.json" -Encoding utf8
 
-    aws iam create-role `
+    aws iam --profile $Profile create-role `
         --role-name $RoleName `
         --assume-role-policy-document file://trust-policy.json `
         --query 'Role.Arn' --output text | Set-Variable RoleArn
 
     # Attach basic execution policy (CloudWatch Logs)
-    aws iam attach-role-policy `
+    aws iam --profile $Profile attach-role-policy `
         --role-name $RoleName `
         --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 
@@ -72,7 +73,7 @@ try {
 "@
     $SecretPolicy | Out-File -FilePath "secret-policy.json" -Encoding utf8
 
-    aws iam put-role-policy `
+    aws iam --profile $Profile put-role-policy `
         --role-name $RoleName `
         --policy-name SecretsManagerRead `
         --policy-document file://secret-policy.json
@@ -90,18 +91,18 @@ Write-Host "Step 3: Deploying Lambda function..." -ForegroundColor Yellow
 
 $FunctionExists = $false
 try {
-    aws lambda get-function --function-name $FunctionName --region $Region >$null 2>&1
+    aws lambda --profile $Profile get-function --function-name $FunctionName --region $Region >$null 2>&1
     $FunctionExists = $true
 } catch { }
 
 if ($FunctionExists) {
     Write-Host "  Updating existing function..." -ForegroundColor Gray
-    aws lambda update-function-code `
+    aws lambda --profile $Profile update-function-code `
         --function-name $FunctionName `
         --zip-file fileb://deployment.zip `
         --region $Region | Out-Null
 
-    aws lambda update-function-configuration `
+    aws lambda --profile $Profile update-function-configuration `
         --function-name $FunctionName `
         --environment "Variables={SECRET_NAME=$SecretName,SECRET_KEY=$SecretKey}" `
         --region $Region | Out-Null
@@ -109,7 +110,7 @@ if ($FunctionExists) {
     Write-Host "  ✓ Function updated" -ForegroundColor Green
 } else {
     Write-Host "  Creating new function..." -ForegroundColor Gray
-    aws lambda create-function `
+    aws lambda --profile $Profile create-function `
         --function-name $FunctionName `
         --runtime nodejs20.x `
         --role $RoleArn `
@@ -130,7 +131,7 @@ Write-Host "Step 4: Creating API Gateway..." -ForegroundColor Yellow
 $ApiId = $null
 try {
     # Try to find existing API by name
-    $ApiList = aws apigatewayv2 get-apis --region $Region --query "Items[?Name=='$FunctionName-api'].ApiId" --output text 2>$null
+    $ApiList = aws apigatewayv2 --profile $Profile get-apis --region $Region --query "Items[?Name=='$FunctionName-api'].ApiId" --output text 2>$null
     if ($ApiList -and $ApiList -ne "None") {
         $ApiId = $ApiList.Trim()
         Write-Host "  ✓ Existing API found: $ApiId" -ForegroundColor Green
@@ -139,7 +140,7 @@ try {
 
 if (-not $ApiId) {
     Write-Host "  Creating new HTTP API..." -ForegroundColor Gray
-    $ApiId = aws apigatewayv2 create-api `
+    $ApiId = aws apigatewayv2 --profile $Profile create-api `
         --name "$FunctionName-api" `
         --protocol-type HTTP `
         --target "arn:aws:lambda:$Region`:$AccountId`:function:$FunctionName" `
@@ -154,14 +155,14 @@ if (-not $ApiId) {
 Write-Host ""
 Write-Host "Step 5: Creating integration..." -ForegroundColor Yellow
 
-$IntegrationId = aws apigatewayv2 get-integrations `
+$IntegrationId = aws apigatewayv2 --profile $Profile get-integrations `
     --api-id $ApiId `
     --region $Region `
     --query "Items[?IntegrationType=='AWS_PROXY'].IntegrationId" --output text 2>$null
 
 if (-not $IntegrationId -or $IntegrationId -eq "None" -or $IntegrationId -eq "") {
     Write-Host "  Creating new integration..." -ForegroundColor Gray
-    $IntegrationId = aws apigatewayv2 create-integration `
+    $IntegrationId = aws apigatewayv2 --profile $Profile create-integration `
         --api-id $ApiId `
         --integration-type AWS_PROXY `
         --integration-uri "arn:aws:lambda:$Region`:$AccountId`:function:$FunctionName" `
@@ -177,14 +178,14 @@ if (-not $IntegrationId -or $IntegrationId -eq "None" -or $IntegrationId -eq "")
 Write-Host ""
 Write-Host "Step 6: Creating route..." -ForegroundColor Yellow
 
-$RouteExists = aws apigatewayv2 get-routes `
+$RouteExists = aws apigatewayv2 --profile $Profile get-routes `
     --api-id $ApiId `
     --region $Region `
     --query "Items[?RouteKey=='POST /submit']" --output text 2>$null
 
 if (-not $RouteExists -or $RouteExists -eq "None" -or $RouteExists -eq "") {
     Write-Host "  Creating POST /submit route..." -ForegroundColor Gray
-    aws apigatewayv2 create-route `
+    aws apigatewayv2 --profile $Profile create-route `
         --api-id $ApiId `
         --route-key "POST /submit" `
         --target "integrations/$IntegrationId" `
@@ -199,11 +200,11 @@ Write-Host ""
 Write-Host "Step 7: Creating stage..." -ForegroundColor Yellow
 
 try {
-    aws apigatewayv2 get-stage --api-id $ApiId --stage-name prod --region $Region >$null 2>&1
+    aws apigatewayv2 --profile $Profile get-stage --api-id $ApiId --stage-name prod --region $Region >$null 2>&1
     Write-Host "  ✓ Stage 'prod' already exists" -ForegroundColor Green
 } catch {
     Write-Host "  Creating prod stage..." -ForegroundColor Gray
-    aws apigatewayv2 create-stage `
+    aws apigatewayv2 --profile $Profile create-stage `
         --api-id $ApiId `
         --stage-name prod `
         --auto-deploy `
@@ -217,7 +218,7 @@ Write-Host ""
 Write-Host "Step 8: Adding Lambda permission..." -ForegroundColor Yellow
 
 try {
-    aws lambda add-permission `
+    aws lambda --profile $Profile add-permission `
         --function-name $FunctionName `
         --statement-id apigateway-invoke `
         --action lambda:InvokeFunction `
