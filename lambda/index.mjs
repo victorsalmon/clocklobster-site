@@ -1,4 +1,5 @@
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
+import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
 var ALLOWED_ORIGINS = [
     'https://clocklobster.com',
@@ -7,7 +8,8 @@ var ALLOWED_ORIGINS = [
 ];
 
 var ATTIO_API_BASE = 'https://api.attio.com/v2';
-var secretsClient = new SecretsManagerClient({ region: process.env.AWS_REGION || 'ca-west-1' });
+var secretsClient = new SecretsManagerClient({ region: 'ca-central-1' });
+var sesClient = new SESClient({ region: 'ca-central-1' });
 var cachedApiKey = null;
 
 async function getAttioApiKey() {
@@ -20,6 +22,9 @@ async function getAttioApiKey() {
     var response = await secretsClient.send(command);
     var secrets = JSON.parse(response.SecretString);
     cachedApiKey = secrets[process.env.SECRET_KEY || 'ATTIO_WEB_FORM1_KEY'];
+    if (!cachedApiKey) {
+        throw new Error('Attio API key not found in secret: ' + (process.env.SECRET_KEY || 'ATTIO_WEB_FORM1_KEY'));
+    }
     return cachedApiKey;
 }
 
@@ -39,6 +44,40 @@ async function attioPost(endpoint, body, apiKey) {
     }
 
     return response.json();
+}
+
+async function sendNotification(data) {
+    try {
+        var subject = 'New Clock Lobster form submission: ' + (data.source || 'website');
+        var bodyLines = [
+            'Name: ' + data.name,
+            'Email: ' + data.email,
+            'Company: ' + (data.company || 'N/A'),
+            'Source: ' + (data.source || 'website'),
+            'Budget: ' + (data.budget || 'N/A'),
+            '',
+            'Message:',
+            data.message || 'No message provided'
+        ];
+
+        var command = new SendEmailCommand({
+            Source: process.env.NOTIFY_FROM || 'hello@clocklobster.com',
+            Destination: {
+                ToAddresses: [(process.env.NOTIFY_TO || 'hello@clocklobster.com')]
+            },
+            Message: {
+                Subject: { Data: subject },
+                Body: {
+                    Text: { Data: bodyLines.join('\n') }
+                }
+            }
+        });
+
+        await sesClient.send(command);
+        console.log('Notification email sent');
+    } catch (err) {
+        console.error('Email notification failed (non-fatal):', err.message);
+    }
 }
 
 function parseName(fullName) {
@@ -112,9 +151,7 @@ export var handler = async function(event) {
             {
                 data: {
                     values: {
-                        email_addresses: [{ email_address: email }],
-                        first_name: parsed.first_name,
-                        last_name: parsed.last_name
+                        email_addresses: [{ email_address: email }]
                     }
                 }
             },
@@ -168,10 +205,12 @@ export var handler = async function(event) {
             }
         }
 
+        await sendNotification({ name, email, company, source, budget, message });
+
         return jsonResponse(200, { success: true }, corsHeaders);
 
     } catch (error) {
         console.error('Form handler error:', error);
-        return jsonResponse(500, { error: 'Internal error' }, corsHeaders);
+        return jsonResponse(500, { error: error.message || 'Internal error' }, corsHeaders);
     }
 };
