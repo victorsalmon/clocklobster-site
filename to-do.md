@@ -11,6 +11,7 @@ This file tracks all active and completed tasks for the Clock Lobster site.
 | 1 | Wait for AWS SES production access approval | ⏳ Blocked | Request submitted; awaiting AWS review |
 | 2 | Verify Tawk.to widget appearance and branding | ⏳ Open | Dashboard may need visibility/domain settings adjusted |
 | 3 | Source remaining images (hero, services, about background) | ⏳ Open | Unsplash, AI gen, or illustrator |
+| 9 | Clarify ongoing operational costs on pricing page | ✅ Completed | Added explicit tiers: <$5, ~$200, ~$500/mo |
 | 4 | Get Mailbutler affiliate link | ⏳ Open | Replace placeholder in Playbook HTML |
 | 5 | Convert lead magnets to PDF | ⏳ Open | Print-to-PDF from `lead-magnets/` HTML files |
 | 6 | Mobile testing across all 6 pages | ⏳ Open | Check responsive breakpoints, form usability, nav |

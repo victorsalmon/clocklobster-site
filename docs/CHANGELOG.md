@@ -79,6 +79,37 @@ All notable changes to the Clock Lobster site will be documented in this file.
 - `lambda/iam-policy.json` for least-privilege deployment user
 - `docs/SITE_ARCHITECTURE.md` and `docs/SYSTEMS_INVENTORY.md`
 
+## [2.0.1] - 2026-04-30
+
+### Changed
+- **Clarified ongoing operational costs on Services page** — Replaced vague "no surprises" text with explicit monthly run-rate tiers:
+  - Simple automations: under $5/month
+  - Basic digital employee (Nemo Claw): ~$200/month
+  - Full agentic employee (Open Claw): ~$500/month
+- Added clear distinction between one-time build costs and ongoing infrastructure costs
+- Updated `docs/SYSTEMS_INVENTORY.md` and `docs/SITE_ARCHITECTURE.md` to note that the ~$0.40/mo cost table is website infrastructure only, not client automation pricing
+
+## [2.0.0] - 2026-04-29
+
+### Changed
+- **Pivoted from WordPress to static GitHub Pages site** — All 6 pages now served as static HTML from repo root
+- Rewrote all page copy for outcome-focused positioning ("best for" labels, simplified process language)
+- Rewrote About page with aspirational founder narrative (Victor Salmon)
+- Embedded live Google Calendar for booking consultations
+- Replaced static chat widget mockup with Tawk.to live chat
+- Replaced Fluent Forms placeholders with working static forms connected to AWS Lambda
+
+### Added
+- Static HTML pages at root: `index.html`, `services.html`, `about.html`, `privacy.html`, `contact.html`, `book-consultation.html`
+- `css/main.css` and `js/main.js` at root for static site
+- `.nojekyll` and `CNAME` for GitHub Pages hosting on custom domain
+- Founder headshot (`images/victor-headshot.jpg`)
+- AWS Lambda form handler (`lambda/index.mjs`) with API Gateway endpoint
+- Attio CRM integration via Lambda: upserts Person, creates Note, sends SES email notification
+- `lambda/deploy.ps1` for AWS CLI deployment
+- `lambda/iam-policy.json` for least-privilege deployment user
+- `docs/SITE_ARCHITECTURE.md` and `docs/SYSTEMS_INVENTORY.md`
+
 ### Technical
 - Form submissions POST to `https://o5vk8qguvg.execute-api.ca-west-1.amazonaws.com/submit`
 - Attio API key stored in AWS Secrets Manager (`ca-central-1`)

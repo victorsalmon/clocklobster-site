@@ -245,6 +245,11 @@ This document tracks every service, account, credential, and resource used to ru
 | Google Calendar | $0 | Free |
 | **Total** | **~$0.40/mo** | Increases to ~$1-5/mo with traffic |
 
+> **Note:** These are the website infrastructure costs only. Client automation ongoing costs are separate and vary by deployment:
+> - Simple integrations: under $5/month
+> - Basic digital employee (Nemo Claw): ~$200/month
+> - Full agentic employee (Open Claw): ~$500/month
+
 ---
 
 ## 13. Credentials & Access

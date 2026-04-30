@@ -193,6 +193,11 @@ All create a Person + Note in Attio and send an email notification. Contact and 
 | Attio | Free tier | $0 |
 | **Total** | | **~$0.40/mo** |
 
+> **Note:** These are the website infrastructure costs only. Client automation ongoing costs are separate and vary by deployment:
+> - Simple integrations: under $5/month
+> - Basic digital employee (Nemo Claw): ~$200/month
+> - Full agentic employee (Open Claw): ~$500/month
+
 ---
 
 ## Troubleshooting
