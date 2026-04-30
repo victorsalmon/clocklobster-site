@@ -73,7 +73,7 @@
         });
     }
 
-    var FORM_API_URL = 'FORM_API_URL_PLACEHOLDER';
+    var FORM_API_URL = 'https://o5vk8qguvg.execute-api.ca-west-1.amazonaws.com/prod/submit';
 
     function getFormSource(form) {
         if (form.closest('.footer-form')) return 'footer';
