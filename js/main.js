@@ -124,13 +124,23 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 }).then(function(response) {
-                    showFormSuccess(form);
-                    if (!response.ok) {
-                        console.error('Form submission returned:', response.status);
+                    if (response.ok) {
+                        showFormSuccess(form);
+                    } else {
+                        console.error('Form submission failed:', response.status);
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText || 'Send Message';
+                        }
+                        alert('Something went wrong. Please try again or email us directly at hello@clocklobster.com');
                     }
                 }).catch(function(err) {
-                    showFormSuccess(form);
                     console.error('Form submission error:', err);
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText || 'Send Message';
+                    }
+                    alert('Something went wrong. Please try again or email us directly at hello@clocklobster.com');
                 });
             } else {
                 showFormSuccess(form);
