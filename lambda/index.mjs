@@ -158,7 +158,9 @@ export var handler = async function(event) {
             apiKey
         );
 
+        console.log('Attio person response:', JSON.stringify(personResponse));
         var personId = personResponse.data && personResponse.data.id && personResponse.data.id.record_id;
+        console.log('Extracted personId:', personId);
 
         if (company) {
             var domain = getEmailDomain(email);
@@ -207,7 +209,7 @@ export var handler = async function(event) {
 
         await sendNotification({ name, email, company, source, budget, message });
 
-        return jsonResponse(200, { success: true }, corsHeaders);
+        return jsonResponse(200, { success: true, personId: personId || null }, corsHeaders);
 
     } catch (error) {
         console.error('Form handler error:', error);
