@@ -1,26 +1,21 @@
 # To-Do Master List
 
-This file tracks all active and completed tasks for the Clock Lobster site. It references all Markdown files in the project root and docs.
+This file tracks all active and completed tasks for the Clock Lobster site.
 
 ---
 
 ## Active Tasks
 
-| # | Task | Status | File Reference |
-|---|------|--------|----------------|
-| 1 | Decide on chat widget implementation path | ⏳ Open | `open-items.md` #1 |
-| 2 | Source images (Unsplash, AI gen, or illustrator) | ⏳ Open | `open-items.md` #2 |
-| 3 | Personalize founder narrative on About page | ⏳ Open | `open-items.md` #3 |
-| 4 | Get Mailbutler affiliate link | ⏳ Open | `open-items.md` #4 |
-| 5 | Configure Attio CRM webhooks | ⏳ Open | `open-items.md` #5 |
-| 6 | Build Fluent Forms and insert shortcodes | ⏳ Open | `open-items.md` #6 |
-| 7 | Choose calendar backend for bookings | ⏳ Open | `open-items.md` #7 |
-| 8 | Set up WordPress and activate theme | ⏳ Open | `human-do-next.md` Phase 1 |
-| 9 | Install required plugins | ⏳ Open | `human-do-next.md` Phase 2 |
-| 10 | Convert lead magnets to PDF | ⏳ Open | `human-do-next.md` Phase 3 |
-| 11 | Test CRM integration end-to-end | ⏳ Open | `human-do-next.md` Phase 4 |
-| 12 | Content review and polish | ⏳ Open | `human-do-next.md` Phase 5 |
-| 13 | Mobile testing and launch prep | ⏳ Open | `human-do-next.md` Phase 6 |
+| # | Task | Status | Notes |
+|---|------|--------|-------|
+| 1 | Wait for AWS SES production access approval | ⏳ Blocked | Request submitted; awaiting AWS review |
+| 2 | Verify Tawk.to widget appearance and branding | ⏳ Open | Dashboard may need visibility/domain settings adjusted |
+| 3 | Source remaining images (hero, services, about background) | ⏳ Open | Unsplash, AI gen, or illustrator |
+| 4 | Get Mailbutler affiliate link | ⏳ Open | Replace placeholder in Playbook HTML |
+| 5 | Convert lead magnets to PDF | ⏳ Open | Print-to-PDF from `lead-magnets/` HTML files |
+| 6 | Mobile testing across all 6 pages | ⏳ Open | Check responsive breakpoints, form usability, nav |
+| 7 | Add Open Graph meta tags | ⏳ Open | For social sharing previews |
+| 8 | Add privacy-friendly analytics | ⏳ Open | Plausible, Fathom, or GA4 |
 
 ---
 
@@ -39,9 +34,19 @@ This file tracks all active and completed tasks for the Clock Lobster site. It r
 | 9 | Write 10-Hours-Saved Time Audit workbook | `7484c6b` |
 | 10 | Create chat widget static mockup | `07bf799` |
 | 11 | Write complete documentation suite | `e3bcff5` |
-| 12 | Create open-items tracker | This commit |
-| 13 | Create human action items list | This commit |
-| 14 | Create AGENTS.md for future AI context | This commit |
+| 12 | Create open-items tracker | `e3bcff5` |
+| 13 | Create human action items list | `e3bcff5` |
+| 14 | Create AGENTS.md for future AI context | `e3bcff5` |
+| 15 | Pivot to static GitHub Pages site | `3afe59c` – `97a47c2` |
+| 16 | Add founder headshot and personalize About page | `3afe59c` |
+| 17 | Deploy AWS Lambda form handler with API Gateway | `d9822d9` |
+| 18 | Connect forms to Attio CRM (Person upsert + Note) | `0b5cc03` |
+| 19 | Add SES email notifications | `0b5cc03` |
+| 20 | Embed live Google Calendar for bookings | intermediate |
+| 21 | Verify SES domain identity (DKIM + MX) | intermediate |
+| 22 | Replace mock chat widget with Tawk.to live chat | `97a47c2` |
+| 23 | Add site architecture and systems inventory docs | `6da4dc0` |
+| 24 | Clean up dead chat widget CSS/JS | current |
 
 ---
 
@@ -55,15 +60,6 @@ This file tracks all active and completed tasks for the Clock Lobster site. It r
 | `open-items.md` | Pending decisions and open questions |
 | `to-do.md` | This file — master task tracker |
 
-### Source Files (Ready for Deletion)
-These files' content has been fully incorporated into the theme, docs, and lead magnets. They can be deleted once confirmed.
-
-| File | Incorporated Into |
-|------|-------------------|
-| `starting-prompt.md` | All page copy, docs/SITE_DOCUMENTATION.md, docs/CHANGELOG.md |
-| `feedback.md` | docs/DESIGN_SYSTEM.md, page-home.php structure, template-parts/chat-widget.php |
-| `plan1.md` | docs/THEME_STRUCTURE.md, docs/PLUGIN_SETUP.md, docs/ATTIO_INTEGRATION.md, docs/CHAT_WIDGET_OPTIONS.md, page-privacy.php security stack, lead-magnets/ |
-
 ### Documentation Directory (`docs/`)
 | File | Purpose |
 |------|---------|
@@ -74,7 +70,9 @@ These files' content has been fully incorporated into the theme, docs, and lead 
 | `ATTIO_INTEGRATION.md` | Webhook payloads, field mappings, testing checklist |
 | `CHAT_WIDGET_OPTIONS.md` | 5 implementation paths with pros/cons |
 | `CHANGELOG.md` | Version history and release notes |
+| `SITE_ARCHITECTURE.md` | Static site architecture, deployment, troubleshooting |
+| `SYSTEMS_INVENTORY.md` | Complete operations manual with all services, credentials, costs |
 
 ---
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-29*

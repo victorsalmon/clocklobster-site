@@ -1,81 +1,90 @@
 # Human Do Next — Action Items
 
-These are the concrete steps you (the human) need to take to get the site live and functional. Check them off as you complete them.
+These are the concrete steps you (the human) need to take to get the site fully live and polished. Check them off as you complete them.
 
 ---
 
-## Phase 1: WordPress Setup
+## Phase 1: Verify Core Systems
 
-- [ ] **Set up WordPress** locally (LocalWP, XAMPP, MAMP) or on staging server
-- [ ] **Upload theme** — Copy `clocklobster-theme/` folder to `/wp-content/themes/`
-- [ ] **Activate theme** — WordPress Admin → Appearance → Themes → Activate "Clock Lobster"
-- [ ] **Create pages** with these exact slugs:
-  - `home`
-  - `services`
-  - `about`
-  - `privacy`
-  - `contact`
-  - `book-consultation`
-- [ ] **Assign page templates** — Edit each page → Page Attributes → Template → select matching template
-- [ ] **Set homepage** — Settings → Reading → "A static page" → select "Home" page
-- [ ] **Configure menus** — Appearance → Menus → create Primary and Footer menus, assign to theme locations
+- [ ] **Tawk.to dashboard setup**
+  - Log in to https://dashboard.tawk.to
+  - Go to **Administration → Chat Widget → Widget Visibility**
+  - Ensure "Hide widget" is **OFF**
+  - Check **Widget Appearance** → set colors to match dark theme (`#121214` background, `#f8fafc` text, `#e11d48` CTA)
+  - Go to **Domains** and add `clocklobster.com` and `www.clocklobster.com` to the whitelist (if restricted)
+  - Download the Tawk.to mobile app (iOS/Android) for on-the-go chat responses
+  - If verification still fails after 30 minutes, try clicking "Re-verify" in the dashboard
 
----
+- [ ] **Wait for AWS SES production access**
+  - Watch for approval email from AWS (may take 24–48 hours)
+  - Once approved, test the contact form on the live site to verify email delivery to `hello@clocklobster.com`
 
-## Phase 2: Plugins
-
-- [ ] **Install Fluent Forms** — Plugins → Add New → search "Fluent Forms" → install free version
-- [ ] **Install Redirection** — Plugins → Add New → search "Redirection" by John Godley
-- [ ] **Install WP Webhooks** — Purchase from wp-webhooks.com → upload ZIP → activate → enter license
-- [ ] **Build Form A: Lead Magnet** — Name, Email, Company → send email with Playbook PDF + Mailbutler link
-- [ ] **Build Form B: Contact** — Name, Email, Company, Message, Budget Range → redirect to `/book-consultation/`
-- [ ] **Build Form C: Footer Quick Contact** — simplified version of Contact form → redirect to `/book-consultation/`
-- [ ] **Style forms for dark theme** — Fluent Forms → Settings → Custom CSS (make inputs match glassmorphism)
+- [ ] **Test forms end-to-end**
+  - Submit the lead magnet form on the homepage
+  - Submit the contact form on `contact.html`
+  - Submit the footer quick-contact form
+  - Verify each creates/updates a Person in Attio CRM
+  - Verify Notes are attached with correct source labels
 
 ---
 
-## Phase 3: Lead Magnets
+## Phase 2: Content & Assets
 
-- [ ] **Convert Playbook to PDF** — Open `lead-magnets/time-reclamation-playbook.html` in browser → Print → Save as PDF
-- [ ] **Convert Audit to PDF** — Open `lead-magnets/10-hours-saved-time-audit.html` in browser → Print → Save as PDF
-- [ ] **Upload PDFs** to WordPress Media Library or email automation tool
-- [ ] **Sign up for Mailbutler affiliate program** — Get your unique referral link
-- [ ] **Replace placeholder link** in Playbook HTML and any email templates with real affiliate URL
+- [ ] **Get Mailbutler affiliate link**
+  - Sign up at https://www.mailbutler.io/partners
+  - Replace placeholder in `lead-magnets/time-reclamation-playbook.html` Chapter 4
 
----
+- [ ] **Source remaining images**
+  - Find Unsplash images for hero background, services section, and about page
+  - Or generate AI images (Midjourney/DALL-E) with prompt: *dark futuristic automation theme, deep charcoal and lobster red accents, glassmorphism UI elements*
+  - Or commission an illustrator for a custom automation hero
 
-## Phase 4: CRM Integration
-
-- [ ] **Get Attio API token** — Attio → Settings → Developers → API Keys → Generate
-- [ ] **Configure WP Webhooks flow** — Follow steps in `docs/ATTIO_INTEGRATION.md`
-- [ ] **Test form submission** → Verify Person record created in Attio
-- [ ] **Test duplicate handling** → Submit same email twice → verify update, not duplicate
-- [ ] **Test Note creation** → Verify message appears as note on Person record
+- [ ] **Convert lead magnets to PDF**
+  - Open `lead-magnets/time-reclamation-playbook.html` in browser → Print → Save as PDF
+  - Open `lead-magnets/10-hours-saved-time-audit.html` in browser → Print → Save as PDF
+  - Upload PDFs to email automation or file hosting for automated delivery
 
 ---
 
-## Phase 5: Content & Polish
+## Phase 3: Polish & Launch Prep
 
-- [ ] **Personalize founder narrative** — Edit `page-about.php` with your real story, or ask me to iterate
-- [ ] **Add stock photos** — Find Unsplash images for hero, services, about sections; or commission illustrations
-- [ ] **Review all copy** — Read through each page template and adjust tone/details to match your voice
-- [ ] **Set up real email address** — Replace `hello@clocklobster.com` with your actual email everywhere
-- [ ] **Configure SEO** — Install Yoast or Rank Math; set page titles and meta descriptions
+- [ ] **Review all copy**
+  - Read through each of the 6 HTML pages and adjust tone/details to match your voice
+  - Check for any remaining placeholder text or "lorem ipsum"
+
+- [ ] **Mobile testing**
+  - Browse every page on phone/tablet (iOS Safari + Android Chrome)
+  - Test hamburger menu opens/closes
+  - Test forms are usable on small screens
+  - Verify Google Calendar embed is scrollable/zoomable on mobile
+
+- [ ] **Add Open Graph meta tags**
+  - Add `<meta property="og:title">`, `<meta property="og:description">`, `<meta property="og:image">` to each page `<head>`
+  - Create a 1200x630 OG image (can reuse brand kit assets)
+
+- [ ] **Add privacy-friendly analytics**
+  - Options: Plausible.io, Fathom, or GA4
+  - Add tracking script to all pages (preferably in `js/main.js` or just before `</body>`)
+
+- [ ] **Test navigation**
+  - Click every internal link on every page
+  - Verify no 404s
+  - Verify external links open in new tab where appropriate
+
+- [ ] **SEO basics**
+  - Ensure each page has a unique `<title>` and `<meta name="description">` (already present, but review)
+  - Submit sitemap to Google Search Console (create `sitemap.xml` if needed)
 
 ---
 
-## Phase 6: Launch Prep
+## Phase 4: Future Enhancements
 
-- [ ] **Test on mobile** — Browse every page on phone/tablet
-- [ ] **Test forms** — Submit each form, verify emails arrive, redirects work
-- [ ] **Test chat widget** — Open/close, send messages, verify mock responses
-- [ ] **Test navigation** — Click every link, verify no 404s
-- [ ] **Set up backups** — Install UpdraftPlus, configure automatic backups
-- [ ] **Set up security** — Install Wordfence, configure firewall
-- [ ] **Set up caching** — Install LiteSpeed Cache or WP Super Cache
-- [ ] **Configure Redirection** — Set up any URL redirects from old site (if applicable)
-- [ ] **Go live** — Point domain to hosting, update WordPress URL settings
+- [ ] **Blog / Insights page** — For SEO and thought leadership
+- [ ] **Case Studies page** — When you have client success stories
+- [ ] **FAQ page** — Expand from contact page teaser into full FAQ
+- [ ] **Terms of Service** — Legal protection for service engagements
+- [ ] **Newsletter signup** — Separate from lead magnet for ongoing nurture
 
 ---
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-29*

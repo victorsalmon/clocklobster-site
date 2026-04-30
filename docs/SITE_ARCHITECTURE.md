@@ -2,9 +2,11 @@
 
 ## What This Is
 
-A static marketing site deployed on **GitHub Pages** with a **serverless backend** on AWS for form handling and CRM integration.
+A static marketing site deployed on **GitHub Pages** with a **serverless backend** on AWS for form handling, CRM integration, and email notifications.
 
 **Live site:** `https://clocklobster.com`
+
+**Product names:** Nemo Claw, Open Claw — our flagship digital employees.
 
 ---
 
@@ -15,6 +17,12 @@ A static marketing site deployed on **GitHub Pages** with a **serverless backend
 │  GitHub Pages   │────▶│  AWS Lambda      │────▶│   Attio     │
 │  (Static HTML)  │     │  (Form Handler)  │     │   (CRM)     │
 └─────────────────┘     └──────────────────┘     └─────────────┘
+                               │
+                               ▼
+                        ┌──────────────────┐
+                        │  AWS SES         │
+                        │  (Email alerts)  │
+                        └──────────────────┘
                                │
                                ▼
                         ┌──────────────────┐
@@ -34,17 +42,19 @@ A static marketing site deployed on **GitHub Pages** with a **serverless backend
 - **AWS Lambda** (`clocklobster-form-handler`) — Node.js 20.x, `ca-west-1`
 - **API Gateway v2** (HTTP API) — CORS-restricted to `clocklobster.com`
 - **Rate limiting** — 10 req/s, burst 20
-- **Secrets Manager** — `ClockLobster/Site/Secrets` → `ATTIO_WEB_FORM1_KEY`
+- **AWS SES** — Email notifications to `hello@clocklobster.com`
+- **Secrets Manager** — `ClockLobster/Site/Secrets` → `ATTIO_WEB_FORM1_KEY` (stored in `ca-central-1`)
 
 ### Data Flow (Form Submission)
 ```
 User fills form on website
     → Browser POSTs to API Gateway
     → Lambda validates input
-    → Lambda reads Attio API key from Secrets Manager
+    → Lambda reads Attio API key from Secrets Manager (ca-central-1)
     → Attio: Upsert Person (by email)
     → Attio: Upsert Company (by domain)
     → Attio: Create Note on Person record
+    → SES: Send email notification
     → Browser shows success message
 ```
 
@@ -54,7 +64,7 @@ User fills form on website
 
 ```
 clocklobster-site/
-├── index.html                    # Homepage
+├── index.html                    # Homepage (features Nemo Claw & Open Claw)
 ├── services.html                 # Services + pricing
 ├── about.html                    # Founder story + philosophy
 ├── privacy.html                  # Data sovereignty
@@ -69,7 +79,8 @@ clocklobster-site/
 ├── lambda/                       # AWS Lambda backend
 │   ├── index.mjs                 # Form handler code
 │   ├── template.yaml             # SAM template (optional)
-│   └── deploy.ps1                # AWS CLI deployment script
+│   ├── deploy.ps1                # AWS CLI deployment script
+│   └── iam-policy.json           # Minimal IAM policy for deployment
 ├── lead-magnets/                 # eBook + workbook HTML
 ├── docs/                         # Documentation
 │   ├── SITE_ARCHITECTURE.md      # This file
@@ -93,8 +104,16 @@ Already automated. Push to `main` branch → GitHub Pages rebuilds.
 4. Check "Enforce HTTPS" (after DNS is properly configured)
 
 **DNS required:**
-- A records for `clocklobster.com` → GitHub IPs (see GitHub docs)
-- CNAME for `www.clocklobster.com` → `victorsalmon.github.io`
+- **A records** for `clocklobster.com` → GitHub Pages IPs:
+  - `185.199.108.153`
+  - `185.199.109.153`
+  - `185.199.110.153`
+  - `185.199.111.153`
+- **CNAME** for `www.clocklobster.com` → `victorsalmon.github.io`
+- **MX record** for `clocklobster.com` → `mail.clocklobster.com` (priority 10) — for email delivery
+- **A record** for `mail.clocklobster.com` → Interserver mail IP
+
+**Important:** The A record for the root domain points to GitHub Pages (for the website), while the MX record routes email to `mail.clocklobster.com` → Interserver.
 
 ### Backend (AWS Lambda)
 
@@ -103,6 +122,7 @@ See `lambda/deploy.ps1` for the full deployment script.
 **Prerequisites:**
 - AWS CLI configured with credentials (`aws configure`)
 - PowerShell (Windows) or bash
+- IAM user with permissions from `lambda/iam-policy.json`
 
 **Deploy:**
 ```powershell
@@ -129,8 +149,10 @@ aws lambda update-function-code --function-name clocklobster-form-handler --zip-
 
 | Variable | Value | Source |
 |----------|-------|--------|
-| `SECRET_NAME` | `ClockLobster/Site/Secrets` | SAM template / deploy script |
-| `SECRET_KEY` | `ATTIO_WEB_FORM1_KEY` | SAM template / deploy script |
+| `SECRET_NAME` | `ClockLobster/Site/Secrets` | Deploy script |
+| `SECRET_KEY` | `ATTIO_WEB_FORM1_KEY` | Deploy script |
+| `NOTIFY_FROM` | `hello@clocklobster.com` | Hardcoded in Lambda |
+| `NOTIFY_TO` | `hello@clocklobster.com` | Hardcoded in Lambda |
 
 These are set at deploy time and never committed to Git.
 
@@ -143,6 +165,7 @@ These are set at deploy time and never committed to Git.
 - **Rate limiting** — 10 requests/second per IP
 - **Input validation** — Lambda validates email format, required fields
 - **No PII in logs** — Lambda logs errors but not full form content
+- **IAM least privilege** — Deploy user has minimal permissions per `lambda/iam-policy.json`
 
 ---
 
@@ -154,7 +177,7 @@ These are set at deploy time and never committed to Git.
 | `contact` | Contact | Name, Email, Company, Message, Budget |
 | `footer` | All pages (footer) | Name, Email, Message |
 
-All create a Person + Note in Attio. Contact and footer forms redirect to `/book-consultation.html` on success.
+All create a Person + Note in Attio and send an email notification. Contact and footer forms redirect to `/book-consultation.html` on success.
 
 ---
 
@@ -165,6 +188,7 @@ All create a Person + Note in Attio. Contact and footer forms redirect to `/book
 | GitHub Pages | Free | $0 |
 | AWS Lambda | Free (1M invocations) | $0 |
 | API Gateway | Free (1M requests) | $0 |
+| AWS SES | Free (62,000 emails/mo from EC2/Lambda) | $0 |
 | Secrets Manager | $0.40/secret | ~$0.40 |
 | Attio | Free tier | $0 |
 | **Total** | | **~$0.40/mo** |
@@ -183,9 +207,15 @@ All create a Person + Note in Attio. Contact and footer forms redirect to `/book
 - If testing locally, add `http://localhost:PORT` to CORS origins in API Gateway
 
 ### 500 errors from Lambda
-- Check Secrets Manager secret exists at `ClockLobster/Site/Secrets`
+- Check Secrets Manager secret exists at `ClockLobster/Site/Secrets` in **ca-central-1**
 - Check Attio API key is valid and has `record:create` + `record:update` scopes
 - Check CloudWatch Logs: `/aws/lambda/clocklobster-form-handler`
+
+### Email notifications not arriving
+- Verify `hello@clocklobster.com` in **AWS SES console** → Verified identities
+- Check MX records for `clocklobster.com` point to `mail.clocklobster.com`
+- Check `mail.clocklobster.com` A record points to Interserver
+- If SES is in sandbox mode, sender and recipient must both be verified
 
 ### GitHub Pages 404
 - Ensure `CNAME` file contains `clocklobster.com`
@@ -194,4 +224,4 @@ All create a Person + Note in Attio. Contact and footer forms redirect to `/book
 
 ---
 
-*Last updated: 2026-04-29*
+*Last updated: 2026-04-30*

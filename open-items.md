@@ -4,16 +4,11 @@ These are active decisions that need to be made before proceeding further. Check
 
 ---
 
-## 1. Chat Widget Implementation Path
+## 1. Chat Widget Implementation Path ✅ RESOLVED
 
-**Options:**
-- **Chatbase** (~$19–$399/mo): Fastest deployment, no-code, analytics, human handoff. Less sovereign.
-- **Custom OpenAI Assistants API** (pay-per-use): Full control, no SaaS lock-in, data goes directly to OpenAI. Requires backend development.
-- **Botpress** (free self-hosted or cloud): Open-source, highly customizable. Steeper learning curve.
-- **SiteGPT** (~$19–$999/mo): Auto-syncs website content. Less mature than Chatbase.
-
-**Current state:** Static CSS/JS mockup is live. No real AI backend connected.
-**Decision needed:** Which path for production?
+**Decision:** Tawk.to free live chat
+**Rationale:** Human agents avoid AI hallucation risk for a boutique trust-based business; free tier covers needs; mobile app available for on-the-go responses.
+**Status:** Script deployed on all 6 pages. Verification in Tawk.to dashboard pending — see troubleshooting checklist in `human-do-next.md`.
 
 ---
 
@@ -25,15 +20,15 @@ These are active decisions that need to be made before proceeding further. Check
 - **AI-generated images** (e.g., Nano Banana, Midjourney, DALL-E) — Custom branded visuals
 - **Hire illustrator** — Custom cartoon/illustrated style for the automation hero
 
-**Current state:** Using CSS gradients, emoji icons, and the automation particle animation.
-**Decision needed:** What visual direction for photography/illustration?
+**Current state:** Founder headshot added. Hero, services, and about sections still use CSS gradients and emoji icons.
+**Decision needed:** What visual direction for remaining photography/illustration?
 
 ---
 
-## 3. Founder Narrative Personalization
+## 3. Founder Narrative Personalization ✅ RESOLVED
 
-**Current state:** Placeholder founder story written in `page-about.php`.
-**Decision needed:** Will you supply your own origin story and bio, or should I iterate on the placeholder?
+**Decision:** Personalized About page copy written with Victor Salmon as founder.
+**Status:** Live on `about.html`. Origin story emphasizes growth, ambition, and hope — matching aspirational tone.
 
 ---
 
@@ -44,24 +39,27 @@ These are active decisions that need to be made before proceeding further. Check
 
 ---
 
-## 5. Attio CRM Webhook Activation
+## 5. Attio CRM Webhook Activation ✅ RESOLVED
 
-**Current state:** Documentation complete, payloads mapped, but no live API token configured.
-**Action needed:** Generate Attio API token and configure WP Webhooks automation flow.
-
----
-
-## 6. Fluent Forms Implementation
-
-**Current state:** Form field specs documented in page templates as placeholder comments.
-**Action needed:** Build actual forms in Fluent Forms plugin and insert shortcodes.
+**Decision:** AWS Lambda + API Gateway instead of WP Webhooks
+**Rationale:** Static site has no WordPress backend; serverless approach is zero-maintenance and costs ~$0.40/mo.
+**Status:** Lambda deployed in `ca-west-1`. Form submissions upsert Person, create Note, and trigger SES email.
 
 ---
 
-## 7. Calendar Backend for Booking Page
+## 6. Fluent Forms Implementation ✅ RESOLVED
 
-**Current state:** Static calendar mockup in `page-book-consultation.php`.
-**Decision needed:** Which calendar tool? (Calendly, SavvyCal, Microsoft Bookings, custom)
+**Decision:** Static HTML forms with vanilla JS fetch to Lambda endpoint
+**Rationale:** No WordPress means no Fluent Forms; static forms are simpler and fully styled in `css/main.css`.
+**Status:** All forms (lead magnet, contact, footer) submitting to live API.
+
+---
+
+## 7. Calendar Backend for Booking Page ✅ RESOLVED
+
+**Decision:** Google Calendar appointment scheduling
+**Rationale:** Free, integrated with existing Google Workspace, embeddable via iframe.
+**Status:** Live embed on `book-consultation.html` — URL: https://calendar.app.google/K2DYAnxqBbokq4ry6
 
 ---
 
@@ -78,4 +76,4 @@ These are active decisions that need to be made before proceeding further. Check
 
 ---
 
-*Last updated: 2026-04-25*
+*Last updated: 2026-04-29*
