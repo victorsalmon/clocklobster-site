@@ -35,9 +35,31 @@ wp-config.php
 # htaccess
 /.htaccess
 
-# Lambda build artifacts
+# Lambda build artifacts and temp files
 lambda/.aws-sam/
 lambda/node_modules/
+lambda/deployment.zip
+lambda/trust-policy.json
+lambda/secret-policy.json
+lambda/*.backup
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.pfx
+*.p12
+.aws/credentials
+
+# Editor backups
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+.DS_Store
 
 # All plugins
 #
