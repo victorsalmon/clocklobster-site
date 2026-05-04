@@ -8,15 +8,19 @@ This file tracks all active and completed tasks for the Clock Lobster site.
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 1 | Wait for AWS SES production access approval | ⏳ Blocked | Request submitted; awaiting AWS review |
+| 1 | Wait for AWS SES production access approval | ⏳ Blocked | Re-apply as "Transactional" not "Marketing" |
 | 2 | Verify Tawk.to widget appearance and branding | ⏳ Open | Dashboard may need visibility/domain settings adjusted |
 | 3 | Source remaining images (hero, services, about background) | ⏳ Open | Unsplash, AI gen, or illustrator |
-| 9 | Clarify ongoing operational costs on pricing page | ✅ Completed | Added explicit tiers: <$5, ~$200, ~$500/mo |
 | 4 | Get Mailbutler affiliate link | ⏳ Open | Replace placeholder in Playbook HTML |
 | 5 | Convert lead magnets to PDF | ⏳ Open | Print-to-PDF from `lead-magnets/` HTML files |
 | 6 | Mobile testing across all 6 pages | ⏳ Open | Check responsive breakpoints, form usability, nav |
 | 7 | Add Open Graph meta tags | ⏳ Open | For social sharing previews |
 | 8 | Add privacy-friendly analytics | ⏳ Open | Plausible, Fathom, or GA4 |
+| 9 | Clarify ongoing operational costs on pricing page | ✅ Completed | Added explicit tiers: <$5, ~$200, ~$500/mo |
+| 10 | Blogpost: API proxy container | ⏳ Open | Technical deep-dive for blog |
+| 11 | Blogpost: Docker proxy and container maintenance container | ⏳ Open | Technical deep-dive for blog |
+| 12 | Blogpost: Code TUI container via ACP to minimize costs | ⏳ Open | Technical deep-dive for blog |
+| 13 | Develop blog monetization strategy | ⏳ Open | Monetize posts on Open Claw, vibecoding, content creation |
 
 ---
 
@@ -47,7 +51,9 @@ This file tracks all active and completed tasks for the Clock Lobster site.
 | 21 | Verify SES domain identity (DKIM + MX) | intermediate |
 | 22 | Replace mock chat widget with Tawk.to live chat | `97a47c2` |
 | 23 | Add site architecture and systems inventory docs | `6da4dc0` |
-| 24 | Clean up dead chat widget CSS/JS | current |
+| 24 | Clean up dead chat widget CSS/JS | `803e3c8` |
+| 25 | Clarify ongoing operational costs on pricing page | `ed479d4` |
+| 26 | Add agent workflow diagram to services page | `6f8c4e5` |
 
 ---
 
